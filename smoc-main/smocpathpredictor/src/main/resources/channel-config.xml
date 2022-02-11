@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/integration"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:context="http://www.springframework.org/schema/context"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+                  http://www.springframework.org/schema/beans/spring-beans.xsd
+                  http://www.springframework.org/schema/integration
+                  http://www.springframework.org/schema/integration/spring-integration.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--context:component-scan base-package="tr.edu.itu.bbf.cloudcore.distributed.service"/-->
+    <context:component-scan base-package="tr.edu.itu.bbf.cloudcore.distributed"/>
+
+    <gateway id="serviceGateway" service-interface="tr.edu.itu.bbf.cloudcore.distributed.service.ServiceGateway"/>
+    <channel id="set.channel"/>
+    <service-activator id="setCheckpoint" input-channel="set.channel" ref="routerService" method="setCheckpoint"/>
+    <channel id="get.channel"/>
+    <service-activator id="getCheckpoint" input-channel="get.channel" ref="routerService" method="getCheckpoint"/>
+    <channel id="storeCKPTInMemory.channel"/>
+    <service-activator id="storeCKPTInMemory" input-channel="storeCKPTInMemory.channel" ref="routerService" method="storeCKPTInMemory"/>
+    <channel id="getCKPTsFromMemory.channel"/>
+    <service-activator id="getCKPTsFromMemory" input-channel="getCKPTsFromMemory.channel" ref="routerService" method="getCKPTsFromMemory"/>
+</beans:beans>

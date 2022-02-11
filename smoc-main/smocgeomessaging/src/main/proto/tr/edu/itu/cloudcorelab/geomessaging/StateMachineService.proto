@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "tr.edu.itu.cloudcorelab.geomessaging";
+
+package stateMachineService;
+
+import "State.proto";
+import "Event.proto";
+import "Common.proto";
+import "ThroughputResult.proto";
+
+service StateMachineService {
+  rpc ProcessEvent (event.Event) returns (common.DefaultResponse) {}
+  
+  rpc GetState (common.EmptyRequest) returns (state.State) {}
+
+  rpc GetThroughput (common.EmptyRequest) returns (throughput.ThroughputResult) {}
+
+  rpc startAnalyze (common.EmptyRequest) returns (common.DefaultResponse) {}
+
+  rpc finishAnalyze (common.EmptyRequest) returns (common.DefaultResponse) {}
+}
+
+
+
+

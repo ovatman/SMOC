@@ -1,0 +1,79 @@
+{
+    "zookeeper": {
+        "ip_address": "localhost",
+        "port": "2181"
+    },
+    "me": {
+        "id": 1,
+        "alias": "Berlin",
+        "priority": 255
+    },
+    "leader": {
+        "id": 1,
+        "alias": "Berlin",
+        "priority": 255
+    },
+    "nodes": [
+        {
+            "id": 1,
+            "alias": "Berlin",
+            "priority": 255
+        },
+        {
+            "id": 2,
+            "alias": "Newyork",
+            "priority": 250
+        },
+        {
+            "id": 3,
+            "alias": "London",
+            "priority": 200
+        },
+        {
+            "id": 4,
+            "alias": "Hoff",
+            "priority": 150
+        }
+    ],
+    "resources": [
+        {
+            "alias": "PaymentSource",
+            "ip_address": "127.0.0.1",
+            "port": 27017,
+            "first_to_access": {
+                "id": 4,
+                "alias": "Hoff",
+                "priority": 150
+            },
+            "nodes": [
+                {
+                    "id": 1,
+                    "alias": "Berlin",
+                    "priority": 255
+                },
+                {
+                    "id": 4,
+                    "alias": "Hoff",
+                    "priority": 150
+                }
+            ]
+        },
+        {
+            "alias": "ReservationSource",
+            "ip_address": "localhost",
+            "port": 27017,
+            "first_to_access": {
+                "id": 3,
+                "alias": "London",
+                "priority": 200
+            },
+            "nodes": [
+                {
+                    "id": 3,
+                    "alias": "London",
+                    "priority": 200
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+version: "3"
+services:
+  zookeeper:
+    build:
+      context: .
+      dockerfile: zookeeper/Dockerfile
+    networks:
+      - isolatedNetwork
+    hostname: ${ZOOKEPER_HOSTNAME}
+  twittersm:
+    build:
+      context: .
+      dockerfile: twittersm/Dockerfile
+    networks:
+      - isolatedNetwork
+    hostname: twittersm
+    tty: true
+    stdin_open: true
+
+networks:
+  isolatedNetwork:
+    ipam:
+      driver: default
+      config:
+        - subnet: '192.17.41.0/24'

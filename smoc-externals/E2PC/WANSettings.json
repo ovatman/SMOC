@@ -1,0 +1,22 @@
+[
+    {
+        "ip" : "localhost",
+        "id" : "server1",
+        "clientport" : "incoming1"
+    },
+    {
+        "ip" : "localhost",
+        "id" : "server2",
+        "clientport" : "incoming2"
+    },
+    {
+        "ip" : "localhost",
+        "id" : "server3",
+        "clientport" : "incoming3"
+    },
+    {
+        "ip" : "localhost",
+        "id" : "server4",
+        "clientport" : "incoming4"
+    }
+]

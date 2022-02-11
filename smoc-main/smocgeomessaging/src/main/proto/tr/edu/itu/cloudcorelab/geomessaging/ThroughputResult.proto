@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "tr.edu.itu.cloudcorelab.geomessaging";
+
+package throughput;
+
+
+message ThroughputResult {
+  uint64 numberOfRequest = 1;
+  uint64 elapsedTimeInMilli = 2;
+}

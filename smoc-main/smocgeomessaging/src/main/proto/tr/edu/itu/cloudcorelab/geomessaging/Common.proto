@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "tr.edu.itu.cloudcorelab.geomessaging";
+
+package common;
+
+
+message DefaultResponse {
+  bool ack = 1;
+}
+
+message EmptyRequest {
+ 
+}

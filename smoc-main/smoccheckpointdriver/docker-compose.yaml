@@ -1,0 +1,21 @@
+version: "3"
+services:
+  loadbalancer:
+    build:
+      context: .
+      dockerfile: loadbalancer/Dockerfile
+    networks:
+      - wan
+    hostname: smoc1
+    environment:
+      - EVENT_EXCHANGE_SMOC1=SMOC1_EVENT_EXCHANGE
+      - EVENT_QUEUE_SMOC1=SMOC1_EVENT_QUEUE
+      - EVENT_EXCHANGE_SMOC2=SMOC2_EVENT_EXCHANGE
+      - EVENT_QUEUE_SMOC2=SMOC2_EVENT_QUEUE
+      - EVENT_EXCHANGE_SMOC3=SMOC3_EVENT_EXCHANGE
+      - EVENT_QUEUE_SMOC3=SMOC3_EVENT_QUEUE
+
+
+networks:
+  wan:
+    external: true
